@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleeping Outdoors</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Sleeping Outdoors</h1>
+        <nav>
+            <ul>
+                <li><a href="#tips">Tips</a></li>
+                <li><a href="#gear">Gear Recommendations</a></li>
+                <li><a href="#weather">Weather Tracker</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="tips">
+        <h2>Outdoor Sleeping Tips</h2>
+        <p>Learn how to stay safe and sleep comfortably outdoors.</p>
+    </section>
+
+    <section id="gear">
+        <h2>Recommended Gear</h2>
+        <p>Find the best tents, sleeping bags, and more.</p>
+    </section>
+
+    <section id="weather">
+    <h2>Weather Forecast</h2>
+    <p>Click the button to get the current weather:</p>
+    <button id="weather-button">Show Weather</button>
+</section>
+
+    <footer>
+        <p>© 2025 Sleeping Outdoors. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
