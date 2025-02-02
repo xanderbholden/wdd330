@@ -11,28 +11,29 @@
         <h1>Welcome to Sleeping Outdoors</h1>
         <nav>
             <ul>
-                <li><a href="#tips">Tips</a></li>
+                <li><a href="#tips">Outdoor Tips</a></li>
                 <li><a href="#gear">Gear Recommendations</a></li>
-                <li><a href="#weather">Weather Tracker</a></li>
+                <li><a href="#weather">Weather Forecast</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="tips">
         <h2>Outdoor Sleeping Tips</h2>
-        <p>Learn how to stay safe and sleep comfortably outdoors.</p>
+        <p>Learn how to sleep comfortably and safely while camping or hiking outdoors.</p>
     </section>
 
     <section id="gear">
         <h2>Recommended Gear</h2>
-        <p>Find the best tents, sleeping bags, and more.</p>
+        <p>Check out our recommendations for tents, sleeping bags, and other essential gear.</p>
     </section>
 
     <section id="weather">
-    <h2>Weather Forecast</h2>
-    <p>Click the button to get the current weather:</p>
-    <button id="weather-button">Show Weather</button>
-</section>
+        <h2>Weather Forecast</h2>
+        <p>Get up-to-date weather information for your outdoor trip.</p>
+        <button id="get-weather-button">Check the Weather</button>
+        <div id="weather-info"></div>
+    </section>
 
     <footer>
         <p>© 2025 Sleeping Outdoors. All rights reserved.</p>

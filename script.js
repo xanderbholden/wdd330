@@ -1,22 +1,31 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const weatherButton = document.querySelector('#weather-button');
+    const weatherButton = document.querySelector('#get-weather-button');
+    const weatherInfoDiv = document.querySelector('#weather-info');
 
-    weatherButton.addEventListener('click', function () {
-        alert('Showing weather information...');
-    });
+    // Function to fetch weather info
+    async function getWeather() {
+        const apiKey = 'your_api_key_here'; // Replace with your OpenWeatherMap API key
+        const city = 'New York'; // Or replace with a dynamic city input if needed
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+
+            if (data.cod === 200) {
+                const weatherDescription = data.weather[0].description;
+                const temperature = data.main.temp;
+                weatherInfoDiv.innerHTML = `<h3>Current Weather in ${city}</h3>
+                                            <p>Condition: ${weatherDescription}</p>
+                                            <p>Temperature: ${temperature}°C</p>`;
+            } else {
+                weatherInfoDiv.innerHTML = `<p>Sorry, couldn't fetch weather data at this moment.</p>`;
+            }
+        } catch (error) {
+            weatherInfoDiv.innerHTML = `<p>Failed to retrieve weather data. Please try again later.</p>`;
+        }
+    }
+
+    // Event listener for button click
+    weatherButton.addEventListener('click', getWeather);
 });
-async function getWeather() {
-    const apiKey = 'your_api_key_here';
-    const city = 'New York'; // Or use any location
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log(data); // Look at the data to see what you get
-
-    // Show the weather on your website (for example)
-    const weatherElement = document.querySelector('#weather');
-    weatherElement.innerHTML = `<h2>Weather in ${city}</h2><p>${data.weather[0].description}</p><p>Temp: ${data.main.temp}°C</p>`;
-}
-
-document.addEventListener('DOMContentLoaded', getWeather);
