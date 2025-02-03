@@ -42,3 +42,44 @@ document.addEventListener('DOMContentLoaded', function () {
 
     weatherButton.addEventListener('click', getWeather);
 });
+function drawConstellationChart() {
+    const canvas = document.getElementById('constellation-chart');
+    const ctx = canvas.getContext('2d');
+
+    // Clear the canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Set background color
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Define some stars and their connections (for example: Orion)
+    const stars = [
+        { x: 300, y: 100 },  // Betelgeuse
+        { x: 320, y: 200 },  // Bellatrix
+        { x: 400, y: 150 },  // Rigel
+        { x: 350, y: 250 },  // Saiph
+        { x: 280, y: 250 },  // Meissa
+    ];
+
+    // Draw stars
+    ctx.fillStyle = 'white';
+    stars.forEach(star => {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, 5, 0, Math.PI * 2);
+        ctx.fill();
+    });
+
+    // Draw lines connecting stars (for Orion)
+    ctx.strokeStyle = 'white';
+    ctx.beginPath();
+    ctx.moveTo(stars[0].x, stars[0].y); // Betelgeuse
+    ctx.lineTo(stars[1].x, stars[1].y); // Bellatrix
+    ctx.lineTo(stars[2].x, stars[2].y); // Rigel
+    ctx.lineTo(stars[3].x, stars[3].y); // Saiph
+    ctx.lineTo(stars[0].x, stars[0].y); // Back to Betelgeuse
+    ctx.stroke();
+}
+
+// Call the draw function
+drawConstellationChart();

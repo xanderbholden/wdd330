@@ -35,6 +35,12 @@
         <div id="weather-info"></div>
     </section>
 
+    <section id="constellation">
+    <h2>Constellation Chart</h2>
+    <canvas id="constellation-chart" width="600" height="400"></canvas>
+</section>
+
+
     <footer>
         <p>© 2025 Sleeping Outdoors. All rights reserved.</p>
     </footer>
