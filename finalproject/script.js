@@ -1,5 +1,5 @@
-const omdbApiKey = 'your_actual_omdb_api_key_here';  // Replace with your OMDb API key
-const tmdbApiKey = 'your_actual_tmdb_api_key_here';  // Replace with your TMDb API key
+const omdbApiKey = 'ba259495';  // OMDb API key
+const tmdbApiKey = 'your_actual_tmdb_api_key_here';  // TMDb API key
 
 // Loading indicator element
 const loadingElement = document.createElement('p');
