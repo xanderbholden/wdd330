@@ -5,22 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Finder</title>
     <script defer src="script.js"></script>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .container { max-width: 800px; margin: auto; }
-        .movie { margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; }
-        .movie img { max-width: 100%; }
-        .button { padding: 8px 16px; margin-top: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
-        .button:hover { background-color: #45a049; }
-        #movieDetails img { width: 200px; }
-        ul { list-style-type: none; padding-left: 0; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1>Movie Finder</h1>
-        <input type="text" id="movieSearch" placeholder="Enter movie name" />
-        <button class="button" onclick="searchMovie()">Search</button>
+        <input type="text" id="movieSearch" placeholder="Enter movie name" aria-label="Search for a movie" />
+        <button class="button" onclick="searchMovie()" aria-label="Search">Search</button>
         
         <div id="movieDetails"></div>
         <div id="tmdbDetails"></div>
@@ -30,3 +21,4 @@
     </div>
 </body>
 </html>
+

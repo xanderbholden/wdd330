@@ -1,6 +1,9 @@
-// OMDb API Key
-const omdbApiKey = 'YOUR_OMDB_API_KEY';  // Replace with your OMDb API key
-const tmdbApiKey = 'YOUR_TMDB_API_KEY';  // Replace with your TMDb API key
+const omdbApiKey = 'your_actual_omdb_api_key_here';  // Replace with your OMDb API key
+const tmdbApiKey = 'your_actual_tmdb_api_key_here';  // Replace with your TMDb API key
+
+// Loading indicator element
+const loadingElement = document.createElement('p');
+loadingElement.innerText = 'Loading...';
 
 // Function to search for a movie using OMDb API
 function searchMovie() {
@@ -9,6 +12,11 @@ function searchMovie() {
         alert('Please enter a movie name');
         return;
     }
+
+    // Display loading message while fetching data
+    document.getElementById('movieDetails').innerHTML = '';
+    document.getElementById('tmdbDetails').innerHTML = '';
+    document.getElementById('movieDetails').appendChild(loadingElement);
 
     // Fetch movie data from OMDb API
     fetch(`https://www.omdbapi.com/?t=${encodeURIComponent(movieName)}&apikey=${omdbApiKey}`)
@@ -38,7 +46,7 @@ function displayMovieDetails(movie) {
         <p>Director: ${movie.Director}</p>
         <p>Plot: ${movie.Plot}</p>
         <img src="${movie.Poster}" alt="Poster" style="width: 200px;">
-        <button class="button" onclick="addToWatchlist('${movie.Title}')">Add to Watchlist</button>
+        <button class="button" onclick="addToWatchlist('${movie.Title}', '${movie.Poster}')">Add to Watchlist</button>
     `;
 }
 
@@ -71,9 +79,21 @@ function displayTmdbDetails(movie) {
 }
 
 // Function to add movie to the Watchlist
-function addToWatchlist(movieName) {
+function addToWatchlist(movieName, posterUrl) {
     const watchlistUl = document.getElementById('watchlist');
     const watchlistItem = document.createElement('li');
-    watchlistItem.textContent = movieName;
+
+    watchlistItem.innerHTML = `
+        <img src="${posterUrl}" alt="Poster">
+        <span>${movieName}</span>
+        <button onclick="removeFromWatchlist(this)" class="button">Remove</button>
+    `;
+    
     watchlistUl.appendChild(watchlistItem);
+}
+
+// Function to remove movie from Watchlist
+function removeFromWatchlist(button) {
+    const watchlistItem = button.parentElement;
+    watchlistItem.remove();
 }

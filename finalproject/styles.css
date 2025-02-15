@@ -14,12 +14,18 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
 input {
     width: 80%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px;
 }
 
 button {
@@ -29,6 +35,7 @@ button {
     color: white;
     border-radius: 5px;
     cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 button:hover {
@@ -42,11 +49,22 @@ button:hover {
     background: #fff;
     border-radius: 5px;
     text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.movie img {
+    max-width: 120px;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
 }
 
 #watchlist {
     list-style-type: none;
     padding: 0;
+    margin-top: 20px;
 }
 
 #watchlist li {
@@ -54,4 +72,30 @@ button:hover {
     margin: 5px;
     padding: 10px;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    transition: background 0.3s ease;
+}
+
+#watchlist li:hover {
+    background: #ddd;
+}
+
+#watchlist img {
+    width: 40px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+    input {
+        width: 90%;
+    }
+
+    .container {
+        padding: 10px;
+    }
 }
