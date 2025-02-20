@@ -248,3 +248,23 @@ button:hover {
 .clear-button {
     margin: 20px;
 }
+.welcome-container {
+    display: flex;
+    flex-direction: column; /* Stacks elements vertically */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh; /* Ensures it takes up full viewport height */
+}
+
+.welcome-message {
+    font-size: 1.5rem;
+    max-width: 500px;
+    margin-bottom: 20px; /* Adds space between message and buttons */
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column; /* Ensures buttons are stacked */
+    gap: 15px; /* Adds spacing between buttons */
+}

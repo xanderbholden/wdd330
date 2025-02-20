@@ -1,10 +1,20 @@
 const API_KEY = 'b0cf86c33b5cf40aebd94b3ce2728dbb';
 const BASE_URL = "https://api.themoviedb.org/3";
 
-function goBack() {
-    console.log("Going back to the previous page...");
-    window.history.back(); // This takes the user back one page
-}
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("utils.js is loaded!");
+
+    const goBackButton = document.getElementById("goBackButton");
+    if (goBackButton) {
+        goBackButton.addEventListener("click", () => {
+            console.log("Going back to the previous page...");
+            window.history.back();
+        });
+    } else {
+        console.error("Go Back button not found!");
+    }
+});
+
 // Fetch Genres
 async function fetchGenres() {
     const response = await fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`);
@@ -67,4 +77,7 @@ function clearResults() {
     } else {
         console.error("Element #movieResults not found.");
     }
+}
+function navigateTo(page) {
+    window.location.href = page; // Redirects the user
 }
