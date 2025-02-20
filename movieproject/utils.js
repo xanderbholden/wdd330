@@ -1,6 +1,10 @@
 const API_KEY = 'b0cf86c33b5cf40aebd94b3ce2728dbb';
 const BASE_URL = "https://api.themoviedb.org/3";
 
+function goBack() {
+    console.log("Going back to the previous page...");
+    window.history.back(); // This takes the user back one page
+}
 // Fetch Genres
 async function fetchGenres() {
     const response = await fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`);
@@ -55,4 +59,12 @@ function displayMovies(movies) {
             <p>📖 ${movie.overview}</p>
         </div>
     `).join('');
+}
+function clearResults() {
+    const movieResults = document.getElementById("movieResults");
+    if (movieResults) {
+        movieResults.innerHTML = ""; // Clears the movie results
+    } else {
+        console.error("Element #movieResults not found.");
+    }
 }
