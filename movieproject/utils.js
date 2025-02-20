@@ -13,7 +13,67 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         console.error("Go Back button not found!");
     }
+
+    // Attach event listener to Find Movie button
+    const findMovieBtn = document.getElementById("findMovieBtn");
+    if (findMovieBtn) {
+        findMovieBtn.addEventListener("click", fetchMovies);
+    }
 });
+
+// Fetch Movies based on filters
+async function fetchMovies() {
+    const genre = document.getElementById("genreSelect")?.value || "";
+    const production = document.getElementById("companySelect")?.value || "";
+    const decade = document.getElementById("yearSelect")?.value || "";
+
+    let apiUrl = `${BASE_URL}/discover/movie?api_key=${API_KEY}&sort_by=popularity.desc`;
+
+    if (genre) apiUrl += `&with_genres=${genre}`;
+    if (production) apiUrl += `&with_companies=${production}`;
+    if (decade) {
+        const [startYear, endYear] = decade.split("-");
+        apiUrl += `&primary_release_date.gte=${startYear}-01-01&primary_release_date.lte=${endYear}-12-31`;
+    }
+
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+
+        if (data.results.length === 0) {
+            alert("No movies found. Try different filters.");
+            return;
+        }
+
+        displayMovies(data.results);
+    } catch (error) {
+        console.error("Error fetching movies:", error);
+    }
+}
+
+// Display only 6 random movies at a time
+function displayMovies(movies) {
+    const results = document.getElementById("movieResults");
+    results.innerHTML = ""; // Clear previous results
+
+    // Shuffle movies and pick 6 random ones
+    const randomMovies = movies.sort(() => 0.5 - Math.random()).slice(0, 6);
+
+    randomMovies.forEach(movie => {
+        const movieCard = document.createElement("div");
+        movieCard.classList.add("movie-card");
+
+        movieCard.innerHTML = `
+            <img src="https://image.tmdb.org/t/p/w500${movie.poster_path || 'placeholder.jpg'}" alt="${movie.title}">
+            <h3>${movie.title}</h3>
+            <p>⭐ Rating: ${movie.vote_average}</p>
+            <p>📅 Release: ${movie.release_date}</p>
+            <p>📖 ${movie.overview.length > 100 ? movie.overview.substring(0, 100) + "..." : movie.overview}</p>
+        `;
+
+        results.appendChild(movieCard);
+    });
+}
 
 // Fetch Genres
 async function fetchGenres() {
@@ -57,27 +117,17 @@ function populateDropdown(id, items, valueKey, textKey) {
     });
 }
 
-// Display Movie Results
-function displayMovies(movies) {
-    const results = document.getElementById("movieResults");
-    results.innerHTML = movies.map(movie => `
-        <div class="movie-card">
-            <img src="https://image.tmdb.org/t/p/w500${movie.poster_path || 'placeholder.jpg'}">
-            <h3>${movie.title}</h3>
-            <p>⭐ Rating: ${movie.vote_average}</p>
-            <p>📅 Release: ${movie.release_date}</p>
-            <p>📖 ${movie.overview}</p>
-        </div>
-    `).join('');
-}
+// Clear results when needed
 function clearResults() {
     const movieResults = document.getElementById("movieResults");
     if (movieResults) {
-        movieResults.innerHTML = ""; // Clears the movie results
+        movieResults.innerHTML = "";
     } else {
         console.error("Element #movieResults not found.");
     }
 }
+
+// Navigate to another page
 function navigateTo(page) {
-    window.location.href = page; // Redirects the user
+    window.location.href = page;
 }
