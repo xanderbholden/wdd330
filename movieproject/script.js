@@ -1,4 +1,5 @@
 const TMDB_API_KEY = 'b0cf86c33b5cf40aebd94b3ce2728dbb';
+const omdbApiKey = 'ba259495';  // OMDb API key
 const movieListDiv = document.getElementById('movieList');
 const getMovieBtn = document.getElementById('get-movie-btn');
 const luckyBtn = document.getElementById('feeling-lucky-btn');

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adults - Cine Vibes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Cine Vibes</h1>
+        <button onclick="goBack()">Go Back</button>
+    </header>
+
+    <div class="content-container">
+        <h2>Find Your Movie</h2>
+
+        <div class="questions">
+            <div class="question-box">
+                <label for="genreSelect">Favorite Genre:</label>
+                <select id="genreSelect"></select>
+            </div>
+
+            <div class="question-box">
+                <label for="companySelect">Favorite Production Company:</label>
+                <select id="companySelect"></select>
+            </div>
+
+            <div class="question-box">
+                <label for="yearSelect">Favorite Decade:</label>
+                <select id="yearSelect"></select>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button onclick="findMovie()">Find Movie</button>
+            <button onclick="feelingLucky()">Feeling Lucky</button>
+            <button onclick="clearResults()">Clear Results</button>
+        </div>
+
+        <div id="movieResults"></div>
+    </div>
+
+    <footer>
+        <p>Xander Holden</p>
+        <p>Provo, Utah</p>
+        <p><a href="#">LinkedIn</a></p>
+    </footer>
+
+    <script src="utils.js"></script>
+    <script src="adults.js"></script>
+</body>
+</html>

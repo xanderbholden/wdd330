@@ -3,97 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CineVibes - Movie Recommendations</title>
+    <title>Cine Vibes</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="overlay"></div> <!-- Overlay for background image -->
-    
-    <div class="container">
-        <h1>Welcome to <span class="cine-vibes">CineVibes</span></h1>
-        <p class="welcome-text">Let's find your perfect movie based on your mood! 🎬</p>
-        <p class="instructions">Please answer the next questions to get started:</p>
+    <header>
+        <h1>Cine Vibes</h1>
+    </header>
 
-        <div class="question-box">
-            <label for="subject">What do you want to watch about?</label>
-            <select id="subject">
-                <option value="">None</option>
-                <option value="cars">Cars</option>
-                <option value="guns">Guns</option>
-                <option value="war">War</option>
-                <option value="space">Space</option>
-                <option value="spy">Spy</option>
-                <option value="zombies">Zombies</option>
-                <option value="history">History</option>
-                <option value="superheroes">Superheroes</option>
-                <option value="animals">Animals</option>
-                <option value="pirates">Pirates</option>
-                <option value="sports">Sports</option>
-                <option value="love">Love</option>
-                <option value="magic">Magic</option>
-                <option value="vampires">Vampires</option>
-                <option value="aliens">Aliens</option>
-                <option value="robots">Robots</option>
-                <option value="horror">Horror</option>
-                <option value="comedy">Comedy</option>
-                <option value="drama">Drama</option>
-                <option value="mystery">Mystery</option>
-                <option value="thriller">Thriller</option>
-                <option value="fantasy">Fantasy</option>
-                <option value="crime">Crime</option>
-                <option value="animation">Animation</option>
-                <option value="biography">Biography</option>
-                <option value="music">Music</option>
-                <option value="adventure">Adventure</option>
-                <option value="documentary">Documentary</option>
-                <option value="warriors">Warriors</option>
-                <option value="espionage">Espionage</option>
-                <option value="survival">Survival</option>
-                <option value="murder">Murder</option>
-            </select>
+    <main>
+        <div class="welcome-message">
+            <p>Having a hard time pickin' a movie? You're in the right place! 🍿🎬😊</p>
         </div>
 
-        <div class="question-box">
-            <label for="genre">What's your favorite movie genre?</label>
-            <select id="genre">
-                <option value="">None</option>
-                <option value="action">Action</option>
-                <option value="comedy">Comedy</option>
-                <option value="drama">Drama</option>
-                <option value="horror">Horror</option>
-                <option value="romance">Romance</option>
-                <option value="adventure">Adventure</option>
-                <option value="fantasy">Fantasy</option>
-                <option value="thriller">Thriller</option>
-                <option value="documentary">Documentary</option>
-                <option value="animation">Animation</option>
-                <option value="mystery">Mystery</option>
-                <option value="family">Family</option>
-                <option value="music">Music</option>
-            </select>
+        <div class="button-container">
+            <button onclick="navigateTo('kids.html')">Kids (0-12)</button>
+            <button onclick="navigateTo('adults.html')">Adults (13+)</button>
         </div>
-        
-        <div class="question-box">
-            <label for="productionCompany">What's your favorite Production Company?</label>
-            <select id="productionCompany">
-                <option value="">None</option>
-                <option value="1">Disney</option>
-                <option value="2">Illumination</option>
-                <option value="3">Warner Bros.</option>
-                <option value="4">Universal</option>
-            </select>
-        </div>
+    </main>
 
-        <button id="get-movie-btn">Get Movie Suggestions</button>
-        <button id="feeling-lucky-btn">Feeling Lucky!</button>
+    <footer>
+        <p>Xander Holden</p>
+        <p>Provo, Utah</p>
+        <p><a href="#">LinkedIn</a></p>
+    </footer>
 
-        <!-- Movie List -->
-        <div id="movieList"></div>
-
-        <!-- Close Button -->
-        <button id="close-list-btn" style="display:none;">Close List</button>
-    </div>
-    
-    <script src="script.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
